@@ -8,7 +8,7 @@ import axios from "axios";
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  const [value, setValue] = useState("context working");
+  const [value, setValue] = useState(null);
   const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
 
   return (
@@ -17,16 +17,16 @@ const App = () => {
         <UserContext.Provider value={{ value, setValue }}>
           <Route
             path="/"
-            component={
-              isLogged
-                ? () => <HomePage />
-                : () => (
-                    <AuthPage
-                      setUserInfo={setUserInfo}
-                      setIsLogged={setIsLogged}
-                    />
-                  )
-            }
+            exact
+            component={() => (
+              <AuthPage setUserInfo={setUserInfo} setIsLogged={setIsLogged} />
+            )}
+          />
+          <Route
+            path="/home"
+            component={() => (
+              <HomePage isLogged={isLogged} setIsLogged={setIsLogged} />
+            )}
           />
         </UserContext.Provider>
       </Switch>

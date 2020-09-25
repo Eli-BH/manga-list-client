@@ -14,7 +14,6 @@ const SignUpForm = ({ setIsLogged, toggleForm }) => {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
   };
 
@@ -36,7 +35,9 @@ const SignUpForm = ({ setIsLogged, toggleForm }) => {
         name="password"
         value={password}
       />
-      <Button variant="secondary">Submit</Button>{" "}
+      <Button variant="secondary" type="submit">
+        Submit
+      </Button>{" "}
       <Button variant="info" onClick={() => toggleForm(false)}>
         Login
       </Button>
