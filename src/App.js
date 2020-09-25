@@ -1,59 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import testProfile from "./components/testProfile";
+import { UserContext } from "./components/UserContext";
+import HomePage from "./components/HomePage";
+import AuthPage from "./components/AuthPage";
+import axios from "axios";
 
 const App = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(" ");
-  const [token, setToken] = useState("");
-  const [auth, setAuth] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+  const [value, setValue] = useState("context working");
+  const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
 
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path="/test" component={testProfile} />
+      <Switch>
+        <UserContext.Provider value={{ value, setValue }}>
           <Route
-            exact
-            path="/signup"
-            render={(props) => (
-              <Signup
-                {...props}
-                {...props}
-                setEmail={setEmail}
-                email={email}
-                setPassword={setPassword}
-                password={password}
-                username={username}
-                setUsername={setUsername}
-                auth={auth}
-                setAuth={setAuth}
-                token={token}
-                setToken={setToken}
-              />
-            )}
-          />
-          <Route
-            exact
             path="/"
-            render={(props) => (
-              <Login
-                {...props}
-                setEmail={setEmail}
-                email={email}
-                setPassword={setPassword}
-                password={password}
-                auth={auth}
-                setAuth={setAuth}
-              />
-            )}
+            component={
+              isLogged
+                ? () => <HomePage />
+                : () => (
+                    <AuthPage
+                      setUserInfo={setUserInfo}
+                      setIsLogged={setIsLogged}
+                    />
+                  )
+            }
           />
-        </Switch>
-      </div>
+        </UserContext.Provider>
+      </Switch>
     </Router>
   );
 };
