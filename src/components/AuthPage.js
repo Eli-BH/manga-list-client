@@ -1,25 +1,20 @@
-import React, { useState } from "react";
-import LoginForm from "./LoginForm";
-import SignUpFrom from "./SignUpForm";
+import React from "react";
+import Button from "react-bootstrap/Button";
+import { Link, Redirect } from "react-router-dom";
 
-const AuthPage = ({ setUserInfo, setIsLogged }) => {
-  const [toggleForm, setToggleForm] = useState(false);
-
+const AuthPage = ({ isLogged }) => {
+  if (isLogged) {
+    return <Redirect to="/home" />;
+  }
   return (
     <div>
-      {toggleForm ? (
-        <LoginForm
-          setUserInfo={setUserInfo}
-          setIsLogged={setIsLogged}
-          toggleForm={setToggleForm}
-        />
-      ) : (
-        <SignUpFrom
-          setUserInfo={setUserInfo}
-          setIsLogged={setIsLogged}
-          toggleForm={setToggleForm}
-        />
-      )}{" "}
+      <Link to="/login">
+        <Button variant="info">Login</Button>
+      </Link>
+
+      <Link to="/signup">
+        <Button variant="danger">Sign up</Button>
+      </Link>
     </div>
   );
 };

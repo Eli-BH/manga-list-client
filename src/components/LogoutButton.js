@@ -1,36 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import { UserContext } from "./UserContext";
-
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const LogoutButton = ({ setIsLogged }) => {
-  const { value, setValue } = useContext(UserContext);
-  let history = useHistory();
-  const item = localStorage.getItem("userData");
-  const token = JSON.parse(item);
+  let userInfo = localStorage.getItem("user");
+  const token = JSON.parse(userInfo).token;
+  const history = useHistory();
 
-  const handleLogout = () => {
-    axios
+  const handleLogout = async () => {
+    await axios
       .post(
         "https://eli-manga-api.herokuapp.com/api/users/logout",
         {},
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => {
         console.log(res);
-
-        localStorage.clear();
-        setValue(null);
-      })
-      .then(() => {
         setIsLogged(false);
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);
@@ -38,10 +28,13 @@ const LogoutButton = ({ setIsLogged }) => {
   };
 
   return (
-    <Link to="/">
-      {" "}
-      <Button onClick={() => handleLogout()}>Logout</Button>{" "}
-    </Link>
+    <Button
+      onClick={() => {
+        handleLogout();
+      }}
+    >
+      logout
+    </Button>
   );
 };
 

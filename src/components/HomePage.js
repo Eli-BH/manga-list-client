@@ -1,32 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "./UserContext";
-import Jumbotron from "react-bootstrap/Jumbotron";
+import React from "react";
+import { Redirect } from "react-router-dom";
 
 import LogoutButton from "./LogoutButton";
-import axios from "axios";
 
-const Homepage = ({ isLogged, setIsLogged }) => {
-  const { value } = useContext(UserContext);
-  const user = localStorage.getItem("userData");
-
-  const data = JSON.parse(user);
+const HomePage = ({ isLogged, setIsLogged }) => {
+  let userInfo = localStorage.getItem("user");
+  userInfo = JSON.parse(userInfo).user;
 
   return (
     <div>
-      {isLogged ? (
-        <div>
-          <Jumbotron>
-            <h1>Here is your manga collection, {data.user.username}</h1>
-            <p>
-              <LogoutButton setIsLogged={setIsLogged} />
-            </p>
-          </Jumbotron>
-        </div>
+      {!isLogged ? (
+        <Redirect to="/" />
       ) : (
-        <h1>Not logged in</h1>
+        <div>
+          <p>Hello {userInfo.username}</p>{" "}
+          <LogoutButton setIsLogged={setIsLogged} />
+        </div>
       )}
     </div>
   );
 };
 
-export default Homepage;
+export default HomePage;

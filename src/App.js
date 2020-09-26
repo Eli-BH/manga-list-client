@@ -1,34 +1,51 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { UserContext } from "./components/UserContext";
-import HomePage from "./components/HomePage";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import AuthPage from "./components/AuthPage";
-import axios from "axios";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import HomePage from "./components/HomePage";
+
+function useStickyState(defaultValue, key) {
+  const [value, setValue] = useState(() => {
+    const stickyValue = window.localStorage.getItem(key);
+    return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
+  });
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
+}
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
-  const [value, setValue] = useState(null);
-  const providerValue = useMemo(() => ({ value, setValue }), [value, setValue]);
+  const [isLogged, setIsLogged] = useStickyState(false, "logged");
 
   return (
     <Router>
       <Switch>
-        <UserContext.Provider value={{ value, setValue }}>
-          <Route
-            path="/"
-            exact
-            component={() => (
-              <AuthPage setUserInfo={setUserInfo} setIsLogged={setIsLogged} />
-            )}
-          />
-          <Route
-            path="/home"
-            component={() => (
-              <HomePage isLogged={isLogged} setIsLogged={setIsLogged} />
-            )}
-          />
-        </UserContext.Provider>
+        <Route
+          exact
+          path="/"
+          component={() => <AuthPage isLogged={isLogged} />}
+        />
+        <Route
+          path="/login"
+          component={() => (
+            <Login isLogged={isLogged} setIsLogged={setIsLogged} />
+          )}
+        />
+        <Route
+          path="/signup"
+          component={() => (
+            <Signup isLogged={isLogged} setIsLogged={setIsLogged} />
+          )}
+        />
+        <Route
+          path="/home"
+          component={() => (
+            <HomePage isLogged={isLogged} setIsLogged={setIsLogged} />
+          )}
+        />
       </Switch>
     </Router>
   );
