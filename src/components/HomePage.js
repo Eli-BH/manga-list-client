@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 import LogoutButton from "./LogoutButton";
 import axios from "axios";
@@ -13,7 +14,14 @@ const Homepage = ({ isLogged, setIsLogged }) => {
   return (
     <div>
       {isLogged ? (
-        <LogoutButton setIsLogged={setIsLogged} />
+        <div>
+          <Jumbotron>
+            <h1>Here is your manga collection, {data.user.username}</h1>
+            <p>
+              <LogoutButton setIsLogged={setIsLogged} />
+            </p>
+          </Jumbotron>
+        </div>
       ) : (
         <h1>Not logged in</h1>
       )}

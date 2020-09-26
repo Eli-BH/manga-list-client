@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { UserContext } from "./UserContext";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const SignUpForm = ({ setIsLogged, toggleForm }) => {
   const [validated, setValidated] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [locEmail, setlocEmail] = useState("");
+  const [locPassword, setlocPassword] = useState("");
+  const { value, setValue } = useContext(UserContext);
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
     setValidated(true);
+
+    axios
+      .post("https://eli-manga-api.herokuapp.com/api/users/login", {
+        email: locEmail,
+        password: locPassword,
+      })
+      .then((res) => {
+        console.log(res);
+        setValue(res.data);
+        setIsLogged(true);
+        localStorage.setItem("userData", JSON.stringify(res.data, null, 2));
+
+        history.push("/home");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -25,7 +47,8 @@ const SignUpForm = ({ setIsLogged, toggleForm }) => {
         type="email"
         placeholder="enter email"
         name="email"
-        value={email}
+        value={locEmail}
+        onChange={(e) => setlocEmail(e.target.value)}
       />
       <Form.Label>password:</Form.Label>
       <Form.Control
@@ -33,13 +56,14 @@ const SignUpForm = ({ setIsLogged, toggleForm }) => {
         type="text"
         placeholder="enter password"
         name="password"
-        value={password}
+        value={locPassword}
+        onChange={(e) => setlocPassword(e.target.value)}
       />
       <Button variant="secondary" type="submit">
         Submit
       </Button>{" "}
       <Button variant="info" onClick={() => toggleForm(false)}>
-        Login
+        Signup
       </Button>
     </Form>
   );
