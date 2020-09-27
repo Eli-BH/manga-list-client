@@ -24,20 +24,24 @@ const MangaList = () => {
     <div>
       {JSON.stringify(manga, null, 2)}{" "}
       <Button onClick={() => handleButton()}>Button</Button>
-      <ListGroup></ListGroup>
-      <div>
-        {manga ? (
-          manga.map((manga) => {
-            return (
-              <ListGroup.Item key={manga._id} onClick={() => alert(manga._id)}>
-                {manga.title}
-              </ListGroup.Item>
-            );
-          })
-        ) : (
-          <h5>no manga</h5>
-        )}
-      </div>
+      <ListGroup>
+        <div>
+          {manga ? (
+            manga.map((manga) => {
+              return (
+                <ListGroup.Item
+                  key={manga._id}
+                  onClick={() => alert(manga._id)}
+                >
+                  {manga.title}
+                </ListGroup.Item>
+              );
+            })
+          ) : (
+            <h5>no manga</h5>
+          )}
+        </div>
+      </ListGroup>
     </div>
   );
 };

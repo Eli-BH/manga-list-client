@@ -2,7 +2,8 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import LogoutButton from "./LogoutButton";
-import MangaList from "./MangaList";
+// import MangaList from "./MangaList";
+import MangaEntry from "./MangaEntry";
 
 const HomePage = ({ isLogged, setIsLogged }) => {
   let userInfo = localStorage.getItem("user");
@@ -16,7 +17,8 @@ const HomePage = ({ isLogged, setIsLogged }) => {
         <div>
           <p>Hello {userInfo.username}</p>{" "}
           <LogoutButton setIsLogged={setIsLogged} />
-          <MangaList />
+          <MangaEntry />
+          {/* <MangaList /> */}
         </div>
       )}
     </div>
