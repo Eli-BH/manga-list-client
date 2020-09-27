@@ -12,7 +12,8 @@ const Login = ({ setIsLogged, isLogged }) => {
 
   const history = useHistory();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -20,7 +21,7 @@ const Login = ({ setIsLogged, isLogged }) => {
     }
     setValidated(true);
 
-    await axios
+    axios
       .post("https://eli-manga-api.herokuapp.com/api/users/login", {
         email: email,
         password: password,
