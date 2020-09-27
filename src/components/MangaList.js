@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 import axios from "axios";
 
 const MangaList = () => {
-  const [manga, setManga] = useState(null);
+  const [manga, setManga] = useState([]);
   let userInfo = localStorage.getItem("user");
   const token = JSON.parse(userInfo).token;
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -23,6 +24,20 @@ const MangaList = () => {
     <div>
       {JSON.stringify(manga, null, 2)}{" "}
       <Button onClick={() => handleButton()}>Button</Button>
+      <ListGroup></ListGroup>
+      <div>
+        {manga ? (
+          manga.map((manga) => {
+            return (
+              <ListGroup.Item key={manga._id} onClick={() => alert(manga._id)}>
+                {manga.title}
+              </ListGroup.Item>
+            );
+          })
+        ) : (
+          <h5>no manga</h5>
+        )}
+      </div>
     </div>
   );
 };
