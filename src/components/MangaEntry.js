@@ -3,8 +3,6 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-import { useLocation } from "react-router-dom";
-import MangaList from "./MangaList";
 
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
@@ -36,22 +34,46 @@ const MangaEntry = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await await axios
-      .get(`https://kitsu.io/api/edge/manga?filter[text]=${manga}`)
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/manga?q=${manga}&page=1`
+      )
       .then((res) => {
-        const mangainfo = res.data.data[0];
-        console.log(res.data.data[0]);
+        const mangainfo = res.data.results[0];
+        console.log(res.data.results[0]);
         setMangaObj({
-          title: "",
-          chapterAmount: 0,
-          synopsis: "",
-          malScore: 0,
-          mangaImage: "",
-          malUrl: "",
+          title: mangainfo.title,
+          chapterAmount: mangainfo.chapters,
+          synopsis: mangainfo.synopsis,
+          malScore: mangainfo.score,
+          mangaImage: mangainfo.image_url,
+          malUrl: mangainfo.url,
         });
+        const dataObj = {
+          title: mangainfo.title,
+          chapterAmount: mangainfo.chapters,
+          synopsis: mangainfo.synopsis,
+          malScore: mangainfo.score,
+          mangaImage: mangainfo.image_url,
+          malURL: mangainfo.url,
+        };
+        return dataObj;
+      })
+      .then((res) => {
+        axios
+          .post("https://eli-manga-api.herokuapp.com/api/manga", res)
+          .then((res) => {
+            console.log(res);
+            window.location.reload(false);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+        console.log(res);
       })
       .catch((e) => {
         console.log(e);
       });
+
     // await axios
     //   .post("https://eli-manga-api.herokuapp.com/api/manga", {
     //     title: manga,
@@ -68,6 +90,9 @@ const MangaEntry = () => {
   return (
     <div>
       <div>
+        <div className="m-5">
+          {mangaObj ? JSON.stringify(mangaObj, null, 2) : "nothing"}
+        </div>
         <Form onSubmit={handleSubmit}>
           <Form.Control
             type="text"
