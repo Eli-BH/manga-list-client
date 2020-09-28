@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 
+import DeleteButton from "./DeleteButton";
+
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
   const [mangaObj, setMangaObj] = useState({
@@ -110,11 +112,10 @@ const MangaEntry = () => {
             {mangaList ? (
               mangaList.map((manga) => {
                 return (
-                  <ListGroup.Item
-                    key={manga._id}
-                    onClick={() => alert(manga._id)}
-                  >
+                  <ListGroup.Item key={manga._id}>
                     {manga.title}
+                    <img src={manga.mangaImage} alt={manga.title} />
+                    <DeleteButton manga={manga} />
                   </ListGroup.Item>
                 );
               })
