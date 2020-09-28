@@ -3,7 +3,9 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import Badge from "react-bootstrap/Badge";
 
+import ChapterPatch from "./ChapterPatch";
 import DeleteButton from "./DeleteButton";
 
 const MangaEntry = () => {
@@ -75,18 +77,6 @@ const MangaEntry = () => {
       .catch((e) => {
         console.log(e);
       });
-
-    // await axios
-    //   .post("https://eli-manga-api.herokuapp.com/api/manga", {
-    //     title: manga,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     window.location.reload(false);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
   };
 
   return (
@@ -114,7 +104,16 @@ const MangaEntry = () => {
                 return (
                   <ListGroup.Item key={manga._id}>
                     {manga.title}
+                    <div>
+                      {manga.complete ? (
+                        <Badge variant="success">Complete</Badge>
+                      ) : (
+                        <Badge variant="danger">Incomplete</Badge>
+                      )}
+                    </div>
                     <img src={manga.mangaImage} alt={manga.title} />
+                    <h5>{manga.readChapterAmount}</h5>
+                    <ChapterPatch manga={manga} />
                     <DeleteButton manga={manga} />
                   </ListGroup.Item>
                 );
