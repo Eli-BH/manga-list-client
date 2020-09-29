@@ -1,25 +1,32 @@
-import React, { useState } from "react";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import React from "react";
 import axios from "axios";
 import { Dropdown } from "react-bootstrap";
 import Badge from "react-bootstrap/Badge";
 
-const RatingButton = () => {
+const RatingButton = ({ manga }) => {
   let userInfo = localStorage.getItem("user");
   const token = JSON.parse(userInfo).token;
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  const [rating, setRating] = useState(0);
   const handleRating = (x) => {
-    setRating(x);
-    axios.patch();
+    axios
+      .patch(`https://eli-manga-api.herokuapp.com/api/manga/${manga._id}`, {
+        rating: x,
+      })
+      .then((res) => {
+        console.log(res);
+        window.location.reload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <>
       <Dropdown variant="succss" size="sm">
         <Dropdown.Toggle size="sm">
           Rating:
-          <Badge variant="light" className="ml-1">{` ${rating}`}</Badge>
+          <Badge variant="light" className="ml-1">{` ${manga.rating}`}</Badge>
           <Dropdown.Menu>
             <Dropdown.Item onClick={() => handleRating(1)}>1</Dropdown.Item>
             <Dropdown.Item onClick={() => handleRating(2)}>2</Dropdown.Item>

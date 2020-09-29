@@ -9,6 +9,8 @@ import Badge from "react-bootstrap/Badge";
 import SetStatusButton from "./SetStatusButton";
 import DeleteButton from "./DeleteButton";
 import RatingButton from "./RatingButton";
+import ReadingStatusBadge from "./ReadingStatusBadge";
+import ReadingAmtDrpDwn from "./ReadingAmtDrpDwn";
 
 const MangaCard = ({ manga }) => {
   const [show, setShow] = useState(false);
@@ -47,9 +49,7 @@ const MangaCard = ({ manga }) => {
                 </Col>
                 <Col>
                   <h6>
-                    <Badge variant="dark">{`${manga.readChapterAmount} / ${
-                      manga.chapterAmount === 0 ? "onging" : manga.chapterAmount
-                    }`}</Badge>
+                    <ReadingAmtDrpDwn manga={manga} />
                   </h6>
                 </Col>
               </Row>
@@ -58,7 +58,7 @@ const MangaCard = ({ manga }) => {
                   <SetStatusButton manga={manga} />
                 </Col>
                 <Col>
-                  <DeleteButton />
+                  <DeleteButton manga={manga} />
                 </Col>
               </Row>
             </Container>
@@ -75,12 +75,15 @@ const MangaCard = ({ manga }) => {
           <Container>
             <Row>
               <Col className="d-flex justify-content-center mb-3">
-                <Badge variant="info">Reading status</Badge>
+                <ReadingStatusBadge manga={manga} />
               </Col>
             </Row>
             <Row>
               <Col className="d-flex justify-content-center">
-                <p>Status:{` ${manga.publishing ? "Ongoing" : "Complete"}`}</p>
+                <p>
+                  Status:
+                  {` ${manga.publishing ? "Ongoing" : " Manga Complete"}`}
+                </p>
               </Col>
               <Col>
                 <p>MAL rating: {manga.malScore}</p>
@@ -94,12 +97,11 @@ const MangaCard = ({ manga }) => {
                 </p>
               </Col>
               <Col>
-                <RatingButton />
+                <RatingButton manga={manga} />
               </Col>
             </Row>
             <Row>
-              <Button variant="dark" className="flex-fill">
-                {" "}
+              <Button variant="dark" className="flex-fill" href={manga.malURL}>
                 Veiw On MAL
               </Button>
             </Row>

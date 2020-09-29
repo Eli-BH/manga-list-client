@@ -3,21 +3,14 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 
 import MangaCard from "./MangaCard";
-import ChapterPatch from "./ChapterPatch";
 import Container from "react-bootstrap/Container";
 
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
-  const [mangaObj, setMangaObj] = useState({
-    title: "",
-    chapterAmount: 0,
-    synopsis: "",
-    malScore: 0,
-    mangaImage: "",
-    malUrl: "",
-  });
+
   const [mangaList, setMangaList] = useState([]);
   let userInfo = localStorage.getItem("user");
   const token = JSON.parse(userInfo).token;
@@ -44,15 +37,7 @@ const MangaEntry = () => {
       .then((res) => {
         const mangainfo = res.data.results[0];
         console.log(res.data.results[0]);
-        setMangaObj({
-          title: mangainfo.title,
-          chapterAmount: mangainfo.chapters,
-          synopsis: mangainfo.synopsis,
-          malScore: mangainfo.score,
-          mangaImage: mangainfo.image_url,
-          malUrl: mangainfo.url,
-          publishing: mangainfo.publishing,
-        });
+
         const dataObj = {
           title: mangainfo.title,
           chapterAmount: mangainfo.chapters,
@@ -84,9 +69,6 @@ const MangaEntry = () => {
   return (
     <div>
       <div>
-        <div className="m-5">
-          {mangaObj ? JSON.stringify(mangaObj, null, 2) : "nothing"}
-        </div>
         <Form onSubmit={handleSubmit}>
           <Form.Control
             type="text"
@@ -100,12 +82,12 @@ const MangaEntry = () => {
 
       <Container fluid>
         <Row className="justify-content-lg-center">
-          {mangaList ? (
+          {mangaList.length > 0 ? (
             mangaList.map((manga) => {
-              return <MangaCard manga={manga} />;
+              return <MangaCard manga={manga} key={manga._id} />;
             })
           ) : (
-            <h5>no manga</h5>
+            <Spinner animation="border" size="lg" />
           )}
         </Row>
       </Container>
