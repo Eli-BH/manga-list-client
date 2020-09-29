@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
-import Badge from "react-bootstrap/Badge";
+import { Row } from "react-bootstrap";
 
+import MangaCard from "./MangaCard";
 import ChapterPatch from "./ChapterPatch";
-import DeleteButton from "./DeleteButton";
+import Container from "react-bootstrap/Container";
 
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
@@ -51,6 +51,7 @@ const MangaEntry = () => {
           malScore: mangainfo.score,
           mangaImage: mangainfo.image_url,
           malUrl: mangainfo.url,
+          publishing: mangainfo.publishing,
         });
         const dataObj = {
           title: mangainfo.title,
@@ -59,6 +60,7 @@ const MangaEntry = () => {
           malScore: mangainfo.score,
           mangaImage: mangainfo.image_url,
           malURL: mangainfo.url,
+          publishing: mangainfo.publishing,
         };
         return dataObj;
       })
@@ -95,35 +97,18 @@ const MangaEntry = () => {
           <Button type="submit">Enter</Button>
         </Form>
       </div>
-      <div>
-        {" "}
-        <ListGroup>
-          <div>
-            {mangaList ? (
-              mangaList.map((manga) => {
-                return (
-                  <ListGroup.Item key={manga._id}>
-                    {manga.title}
-                    <div>
-                      {manga.complete ? (
-                        <Badge variant="success">Complete</Badge>
-                      ) : (
-                        <Badge variant="danger">Incomplete</Badge>
-                      )}
-                    </div>
-                    <img src={manga.mangaImage} alt={manga.title} />
-                    <h5>{manga.readChapterAmount}</h5>
-                    <ChapterPatch manga={manga} />
-                    <DeleteButton manga={manga} />
-                  </ListGroup.Item>
-                );
-              })
-            ) : (
-              <h5>no manga</h5>
-            )}
-          </div>
-        </ListGroup>
-      </div>
+
+      <Container fluid>
+        <Row className="justify-content-lg-center">
+          {mangaList ? (
+            mangaList.map((manga) => {
+              return <MangaCard manga={manga} />;
+            })
+          ) : (
+            <h5>no manga</h5>
+          )}
+        </Row>
+      </Container>
     </div>
   );
 };
