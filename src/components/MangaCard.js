@@ -84,7 +84,9 @@ const MangaCard = ({ manga }) => {
               <Col className="d-flex justify-content-center">
                 <p>
                   Status:
-                  {` ${manga.publishing ? "Ongoing" : " Manga Complete"}`}
+                  {` ${
+                    manga.chapterAmount === 0 ? "Ongoing" : " Manga Complete"
+                  }`}
                 </p>
               </Col>
               <Col>
@@ -95,7 +97,9 @@ const MangaCard = ({ manga }) => {
               <Col className="d-flex justify-content-center">
                 <p>
                   Chapters:{" "}
-                  {manga.publishing ? "publishing" : manga.chapterAmount}
+                  {manga.chapterAmount === 0
+                    ? "publishing"
+                    : manga.chapterAmount}
                 </p>
               </Col>
               <Col>

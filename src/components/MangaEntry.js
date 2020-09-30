@@ -4,12 +4,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
-import MangaCard from "./MangaCard";
+
 import Container from "react-bootstrap/Container";
+
+import MangaCard from "./MangaCard";
+import MangaListItem from "./MangaListItem";
 
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
   const [sort, setSort] = useState(false);
+  const [list, setList] = useState(false);
 
   const [mangaList, setMangaList] = useState([]);
   let userInfo = localStorage.getItem("user");
@@ -72,7 +76,8 @@ const MangaEntry = () => {
     <div>
       <div>
         <Container>
-          <Form onSubmit={handleSubmit}>
+          <Button onClick={() => setList(!list)}>List Mode</Button>
+          <Form onSubmit={handleSubmit} className="mb-5">
             <Row>
               <img
                 src="https://icon-icons.com/icons2/2248/PNG/32/sort_alphabetical_variant_icon_138167.png"
@@ -102,9 +107,15 @@ const MangaEntry = () => {
       <Container fluid>
         <Row className="justify-content-lg-center">
           {mangaList.length > 0 ? (
-            mangaList.map((manga) => {
-              return <MangaCard manga={manga} key={manga._id} />;
-            })
+            list ? (
+              mangaList.map((manga) => {
+                return <MangaListItem manga={manga} key={manga._id} />;
+              })
+            ) : (
+              mangaList.map((manga) => {
+                return <MangaCard manga={manga} key={manga._id} />;
+              })
+            )
           ) : (
             <Spinner animation="border" size="lg" />
           )}

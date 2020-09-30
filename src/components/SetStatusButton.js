@@ -24,8 +24,13 @@ const ChapterPatch = ({ manga }) => {
 
   return (
     <>
-      <Button variant="info" onClick={handleStatus} size="sm">
-        {manga.complete ? "Incomplete" : "Complete"}
+      <Button
+        variant="info"
+        onClick={handleStatus}
+        size="sm"
+        style={{ padding: 4, fontSize: 10 }}
+      >
+        {manga.complete ? "Set Incomplete" : "Set Complete"}
       </Button>
     </>
   );

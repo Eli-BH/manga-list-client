@@ -22,7 +22,13 @@ const DeleteButton = ({ manga }) => {
   };
 
   return (
-    <Button variant="danger" onClick={handleDelete} size="sm">
+    <Button
+      variant="danger"
+      onClick={handleDelete}
+      size="sm"
+      style={{ padding: 1 }}
+      className="ml-2 "
+    >
       Delete
     </Button>
   );

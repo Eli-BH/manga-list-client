@@ -86,7 +86,7 @@ const ReadingAmtDrpDwn = ({ manga }) => {
   );
 
   return (
-    <Dropdown>
+    <Dropdown style={{ cursor: "pointer" }}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
         {`${manga.readChapterAmount} / ${
           manga.chapterAmount === 0 ? "onging" : manga.chapterAmount
