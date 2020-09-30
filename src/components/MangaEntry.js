@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
+  const [sort, setSort] = useState(false);
 
   const [mangaList, setMangaList] = useState([]);
   let userInfo = localStorage.getItem("user");
@@ -16,8 +17,10 @@ const MangaEntry = () => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   useEffect(() => {
+    const sortBy = sort === true ? "?sortBy=title:asc" : "";
+
     axios
-      .get("https://eli-manga-api.herokuapp.com/api/manga")
+      .get(`https://eli-manga-api.herokuapp.com/api/manga${sortBy}`)
       .then((res) => {
         console.log(res.data);
         setMangaList(res.data);
@@ -25,7 +28,7 @@ const MangaEntry = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [sort]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,12 +74,21 @@ const MangaEntry = () => {
         <Container>
           <Form onSubmit={handleSubmit}>
             <Row>
+              <img
+                src="https://icon-icons.com/icons2/2248/PNG/32/sort_alphabetical_variant_icon_138167.png"
+                onClick={() => {
+                  setSort(!sort);
+                }}
+                style={{ cursor: "pointer" }}
+                alt="alphabetical sort"
+              />
               <Col>
                 <Form.Control
                   type="text"
                   value={manga}
                   placeholder="enter manga name"
                   onChange={(e) => setManga(e.target.value)}
+                  style={{ border: "solid darkGrey 2px", borderRadius: 50 }}
                 />
               </Col>
               <Button type="submit" className="mr-2">

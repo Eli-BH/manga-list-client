@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
-const Header = () => {
+import LogoutButton from "./LogoutButton";
+
+const Header = ({ setIsLogged }) => {
   const [mangaList, setMangaList] = useState("");
+  let count = 0;
   let userInfo = localStorage.getItem("user");
   userInfo = JSON.parse(userInfo).user ? JSON.parse(userInfo).user : "";
 
@@ -19,19 +22,22 @@ const Header = () => {
       });
   }, []);
 
+  for (let i = 0; i < mangaList.length; i++) {
+    if (mangaList[i].complete === true) {
+      console.log(mangaList[i].title);
+      count += 1;
+    }
+  }
+
   return (
     <Jumbotron>
-      <h1>Hello, World!</h1>
-      <p>
-        "Water. Earth. Fire. Air. Long ago, the four nations lived together in
-        harmony. Then, everything changed when the Fire Nation attacked. Only
-        the Avatar, master of all four elements, could stop them, but when the
-        world needed him most, he vanished.{" "}
-      </p>
+      <h1>Hello, {userInfo.username}</h1>
+      <p>Welcom to your manga list!</p>
       <div>
-        <h4></h4>
-        <h4></h4>
+        <h4>{` ${mangaList.length} Manga `}</h4>
+        <h4>{`${count} are complete`}</h4>
       </div>
+      <LogoutButton setIsLogged={setIsLogged} />
     </Jumbotron>
   );
 };

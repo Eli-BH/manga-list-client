@@ -40,13 +40,13 @@ const MangaCard = ({ manga }) => {
               <Row>
                 <Col className="d-flex justify-content-center">
                   {manga.complete ? (
-                    <h4>
+                    <h5>
                       <Badge variant="success">Complete</Badge>
-                    </h4>
+                    </h5>
                   ) : (
-                    <h6>
+                    <h5>
                       <Badge variant="danger">Incomplete</Badge>
-                    </h6>
+                    </h5>
                   )}
                 </Col>
                 <Col>
