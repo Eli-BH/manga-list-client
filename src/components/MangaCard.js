@@ -19,8 +19,10 @@ const MangaCard = ({ manga }) => {
 
   return (
     <>
-      <Col className="m-2" md="auto">
-        <Card style={{ width: "18rem", border: "black solid 1px" }}>
+      <Col className="m-2 d-flex justify-content-center" md="auto">
+        <Card
+          style={{ width: "16rem", height: "auto", border: "black solid 1px" }}
+        >
           <Card.Img
             varient="top"
             src={manga.mangaImage}

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
-
 import MangaCard from "./MangaCard";
 import Container from "react-bootstrap/Container";
 
@@ -69,15 +68,23 @@ const MangaEntry = () => {
   return (
     <div>
       <div>
-        <Form onSubmit={handleSubmit}>
-          <Form.Control
-            type="text"
-            value={manga}
-            placeholder="enter manga name"
-            onChange={(e) => setManga(e.target.value)}
-          />
-          <Button type="submit">Enter</Button>
-        </Form>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  value={manga}
+                  placeholder="enter manga name"
+                  onChange={(e) => setManga(e.target.value)}
+                />
+              </Col>
+              <Button type="submit" className="mr-2">
+                Enter
+              </Button>
+            </Row>
+          </Form>
+        </Container>
       </div>
 
       <Container fluid>
