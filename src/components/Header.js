@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Container from "react-bootstrap/Container";
+import { Row, Col } from "react-bootstrap";
 
 import LogoutButton from "./LogoutButton";
 
@@ -30,15 +32,29 @@ const Header = ({ setIsLogged }) => {
   }
 
   return (
-    <Jumbotron>
-      <h1>Hello, {userInfo.username}</h1>
-      <p>Welcom to your manga list!</p>
-      <div>
-        <h4>{` ${mangaList.length} Manga `}</h4>
-        <h4>{`${count} are complete`}</h4>
-      </div>
-      <LogoutButton setIsLogged={setIsLogged} />
-    </Jumbotron>
+    <Container fluid style={{ width: "80%" }}>
+      <Jumbotron className="d-flex justify-content-center align-content-center">
+        <div>
+          <h1>Hello, {userInfo.username}</h1>
+          <p>Welcom to your manga list!</p>
+
+          <Row>
+            <Col>
+              <h4>{` ${mangaList.length}: Manga `}</h4>
+            </Col>
+            <Col style={{ width: 600 }}>
+              <h4>{`${count}: completed Manga`}</h4>
+            </Col>
+
+            <Col>
+              <div className=" d-flex justify-content-center ">
+                <LogoutButton setIsLogged={setIsLogged} />
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </Jumbotron>
+    </Container>
   );
 };
 

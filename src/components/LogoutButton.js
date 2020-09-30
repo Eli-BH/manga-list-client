@@ -33,6 +33,7 @@ const LogoutButton = ({ setIsLogged }) => {
       onClick={() => {
         handleLogout();
       }}
+      size="sm"
     >
       logout
     </Button>

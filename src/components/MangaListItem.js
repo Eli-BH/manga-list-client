@@ -16,7 +16,7 @@ import ReadingAmtDrpDwn from "./ReadingAmtDrpDwn";
 
 const MangaListItem = ({ manga }) => {
   return (
-    <Container>
+    <Container fluid>
       <Accordion style={{ paddingRigh: 5 }}>
         <Card
           style={{

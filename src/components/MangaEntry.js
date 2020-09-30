@@ -13,7 +13,7 @@ import MangaListItem from "./MangaListItem";
 const MangaEntry = () => {
   const [manga, setManga] = useState("");
   const [sort, setSort] = useState(false);
-  const [list, setList] = useState(false);
+  let width = window.innerWidth;
 
   const [mangaList, setMangaList] = useState([]);
   let userInfo = localStorage.getItem("user");
@@ -76,7 +76,6 @@ const MangaEntry = () => {
     <div>
       <div>
         <Container>
-          <Button onClick={() => setList(!list)}>List Mode</Button>
           <Form onSubmit={handleSubmit} className="mb-5">
             <Row>
               <img
@@ -107,7 +106,7 @@ const MangaEntry = () => {
       <Container fluid>
         <Row className="justify-content-lg-center">
           {mangaList.length > 0 ? (
-            list ? (
+            width > 500 ? (
               mangaList.map((manga) => {
                 return <MangaListItem manga={manga} key={manga._id} />;
               })
