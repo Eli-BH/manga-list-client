@@ -24,7 +24,9 @@ const MangaEntry = () => {
     const sortBy = sort === true ? "?sortBy=title:asc" : "";
 
     axios
-      .get(`https://cors-anywhere.herokuapp.com/https://https://eli-manga-api.herokuapp.com/api/manga${sortBy}`)
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://https://eli-manga-api.herokuapp.com/api/manga${sortBy}`
+      )
       .then((res) => {
         console.log(res.data);
         setMangaList(res.data);
@@ -37,9 +39,7 @@ const MangaEntry = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await await axios
-      .get(
-        `https://api.jikan.moe/v3/search/manga?q=${manga}&page=1`
-      )
+      .get(`https://api.jikan.moe/v3/search/manga?q=${manga}&page=1`)
       .then((res) => {
         const mangainfo = res.data.results[0];
         console.log(res.data.results[0]);
@@ -116,7 +116,14 @@ const MangaEntry = () => {
               })
             )
           ) : (
-            <Spinner animation="border" size="lg" />
+            <div>
+              {" "}
+              <Row>
+                {" "}
+                <h3 className="mr-5">Add Manga! </h3>
+                <Spinner animation="border" size="lg" />
+              </Row>{" "}
+            </div>
           )}
         </Row>
       </Container>
