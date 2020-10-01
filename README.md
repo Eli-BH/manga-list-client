@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <a href="https://mangalist.herokuapp.com"><img src="https://thumbs.gfycat.com/AnchoredLikableBedbug-size_restricted.gif" alt="Manga Client" /> Heroku App</a>
+  <a href="https://mangalist.herokuapp.com"><img width="15px" src="https://thumbs.gfycat.com/AnchoredLikableBedbug-size_restricted.gif" alt="Manga Client" /> Heroku App</a>
 
 &#xa0;
 
