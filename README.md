@@ -3,19 +3,19 @@
 
 &#xa0;
 
-  <!-- <a href="https://mangaclient.netlify.app">Demo</a> -->
+  <!-- <a href="https://yourmanga.herokuapp.com">Demo</a> -->
 </div>
 
 <h1 align="center">Manga Client</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Eli-BH/manga-client?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Eli-BH/manga-client?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Eli-BH/manga-client?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/Eli-BH/manga-client?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8" /> -->
 
@@ -77,7 +77,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{Eli-BH}}/manga-client
+$ git clone https://github.com/Eli-BH/manga-client
 
 # Access
 $ cd manga-client
