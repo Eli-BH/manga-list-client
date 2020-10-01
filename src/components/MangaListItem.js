@@ -47,7 +47,7 @@ const MangaListItem = ({ manga }) => {
                     <SetStatusButton manga={manga} />
                   </Col>
                   <Col style={{ padding: 0 }}>
-                    <Container fluid noGutters style={{ padding: 0 }}>
+                    <Container fluid style={{ padding: 0 }}>
                       <Row>
                         <Col>
                           {" "}

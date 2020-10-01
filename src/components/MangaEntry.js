@@ -38,7 +38,7 @@ const MangaEntry = () => {
     event.preventDefault();
     await await axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://https://api.jikan.moe/v3/search/manga?q=${manga}&page=1`
+        `https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/manga?q=${manga}&page=1`
       )
       .then((res) => {
         const mangainfo = res.data.results[0];
