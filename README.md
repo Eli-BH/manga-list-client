@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Manga Client" />
+  <a href="https://mangalist.herokuapp.com"><img src="https://thumbs.gfycat.com/AnchoredLikableBedbug-size_restricted.gif" alt="Manga Client" /> Heroku App</a>
 
 &#xa0;
 
@@ -14,8 +14,6 @@
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/Eli-BH/manga-list-client?color=56BEB8">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/Eli-BH/manga-list-client?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/Eli-BH/manga-list-client?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8" /> -->
 
