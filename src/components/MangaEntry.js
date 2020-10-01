@@ -24,7 +24,7 @@ const MangaEntry = () => {
     const sortBy = sort === true ? "?sortBy=title:asc" : "";
 
     axios
-      .get(`https://eli-manga-api.herokuapp.com/api/manga${sortBy}`)
+      .get(`https://cors-anywhere.herokuapp.com/https://https://eli-manga-api.herokuapp.com/api/manga${sortBy}`)
       .then((res) => {
         console.log(res.data);
         setMangaList(res.data);
