@@ -5,7 +5,6 @@
 
   <!-- <a href="https://yourmanga.herokuapp.com">Demo</a> -->
 </div>
-
 <h1 align="center">Manga Client</h1>
 
 <p align="center">
