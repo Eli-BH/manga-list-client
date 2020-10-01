@@ -75,12 +75,13 @@ const MangaEntry = () => {
           <Form onSubmit={handleSubmit} className="mb-5">
             <Row>
               <img
-                src="https://icon-icons.com/icons2/2248/PNG/32/sort_alphabetical_variant_icon_138167.png"
+                src={require("./sort_alphabetical_variant_icon_138167.png")}
                 onClick={() => {
                   setSort(!sort);
                 }}
                 style={{ cursor: "pointer" }}
                 alt="alphabetical sort"
+                className="pl-2"
               />
               <Col>
                 <Form.Control
