@@ -9,13 +9,13 @@
 <h1 align="center">Manga Client</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Eli-BH/manga-client?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Eli-BH/manga-list-client?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Eli-BH/manga-client?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Eli-BH/manga-list-client?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Eli-BH/manga-client?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Eli-BH/manga-list-client?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/Eli-BH/manga-client?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/Eli-BH/manga-list-client?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8" /> -->
 
@@ -39,7 +39,7 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/Eli-BH" target="_blank">Author</a>
 </p>
 
 <br>
@@ -54,9 +54,11 @@ of the manga that want to read, are reading, and have read.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Feature 1;\ Users have the ability to make and account to store your personal collection.
-:heavy_check_mark: Feature 2;\ Users can add manga, delete manga, and alter your reading status and reading position by chapter.
-:heavy_check_mark: Feature 3;\ The app list style can change between cards and list components based on the size of the users screen. This can make the app responsive.
+:heavy_check_mark: Feature 1; Users have the ability to make and account to store your personal collection.
+:heavy_check_mark: Feature 2;\ Users can add manga, delete manga,
+and alter your reading status and reading position by chapter.
+:heavy_check_mark: Feature 3;\ The app list style can change between cards and list
+components based on the size of the users screen. This can make the app responsive.
 
 ## :rocket: Technologies
 
@@ -83,10 +85,10 @@ $ git clone https://github.com/Eli-BH/manga-client
 $ cd manga-client
 
 # Install dependencies
-$ yarn
+$ npm
 
 # Run the project
-$ yarn start
+$ npm start
 
 # The server will initialize in the <http://localhost:3000>
 ```
@@ -95,7 +97,7 @@ $ yarn start
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Made with :heart: by <a href="https://github.com/{{Eli-BH}}" target="_blank">{{Eli Henderson}}</a>
+Made with :heart: by <a href="https://github.com/Eli-BH" target="_blank">Eli Henderson</a>
 
 &#xa0;
 
