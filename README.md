@@ -35,7 +35,9 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-usage">Usage</a>  &#xa0; | &#xa0;  
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="#design">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/Eli-BH" target="_blank">Author</a>
 </p>
 
@@ -89,6 +91,21 @@ $ npm start
 
 # The server will initialize in the <http://localhost:3000>
 ```
+
+## :memo: Usage
+
+Starting up: You must make an account to use the application  
+To begin your collection: Add a name of a manga in the input bar.
+If the manga you wanted does not come up, delete the manga card and check your spelling.  
+To enter your chapter position: click the badge with with the chapter amounts.
+
+## Design
+
+Desktop Verision
+<img src={require("./desktop-version.JPG")}>
+
+Phone Version
+<img src={require("./phone-mode.JPG")}>
 
 ## :memo: License
 
