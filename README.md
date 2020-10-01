@@ -51,10 +51,10 @@ of the manga that want to read, are reading, and have read.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Feature 1; Users have the ability to make and account to store your personal collection.
-:heavy_check_mark: Feature 2;\ Users can add manga, delete manga,
-and alter your reading status and reading position by chapter.
-:heavy_check_mark: Feature 3;\ The app list style can change between cards and list
+:heavy_check_mark: Feature 1; Users have the ability to make and account to store your personal collection.  
+:heavy_check_mark: Feature 2; Users can add manga, delete manga,
+and alter your reading status and reading position by chapter.  
+:heavy_check_mark: Feature 3; The app list style can change between cards and list  
 components based on the size of the users screen. This can make the app responsive.
 
 ## :rocket: Technologies
