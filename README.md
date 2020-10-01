@@ -102,10 +102,10 @@ To enter your chapter position: click the badge with with the chapter amounts.
 ## Design
 
 Desktop Verision
-<img src={require("./desktop-version.JPG")}>
+<img src={require(./desktop-version.JPG)}>
 
 Phone Version
-<img src={require("./phone-mode.JPG")}>
+<img src={require(./phone-mode.JPG)}>
 
 ## :memo: License
 
