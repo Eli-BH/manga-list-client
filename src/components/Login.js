@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
+import Container from 'react-bootstrap/Container'
 
 const Login = ({ setIsLogged, isLogged }) => {
   const [email, setEmail] = useState("");
@@ -41,8 +42,10 @@ const Login = ({ setIsLogged, isLogged }) => {
     return <Redirect to="/home" />;
   }
   return (
-    <div>
+    <Container className="mb-5 pt-5" styles={{height: '100vh', backgroundColor: "#F2D398"}} >
+    <div  className="mb-5 pt-5" styles={{ backgroundColor: "#F2D398"}}>
       {" "}
+      <h1 className="mb-5"> Login</h1>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Label>Email</Form.Label>
         <Form.Control
@@ -66,13 +69,13 @@ const Login = ({ setIsLogged, isLogged }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div>
-          <Button type="submit">Submit</Button>{" "}
+          <Button type="submit" variant="deep">Submit</Button>{" "}
           <Link to="/signup">
             <Button>Sign up</Button>
           </Link>
         </div>
       </Form>
-    </div>
+    </div></Container>
   );
 };
 

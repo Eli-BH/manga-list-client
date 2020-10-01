@@ -33,7 +33,7 @@ const Header = ({ setIsLogged }) => {
 
   return (
     <Container fluid style={{ width: "80%" }}>
-      <Jumbotron className="d-flex justify-content-center align-content-center">
+      <Jumbotron className="d-flex justify-content-center align-content-center" style={{backgroundColor: '#50C9CE' }}>
         <div>
           <h1>Hello, {userInfo.username}</h1>
           <p>Welcom to your manga list!</p>

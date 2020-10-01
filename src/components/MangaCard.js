@@ -45,7 +45,7 @@ const MangaCard = ({ manga }) => {
                     </h5>
                   ) : (
                     <h5>
-                      <Badge variant="danger">Incomplete</Badge>
+                      <Badge variant="candy">Incomplete</Badge>
                     </h5>
                   )}
                 </Col>

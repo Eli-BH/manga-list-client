@@ -1,0 +1,14 @@
+$theme-colors: (
+    "info": tomato,
+    "danger": #DE1A1A, 
+    "blue": #50C9CE, 
+    "dark" : #050505,
+    "cream" : #FFEFD3,
+    "warning" : #BF1363,
+    "alarm" : #F39237,
+    "deep" : #117ACA,
+    "primary" : #F39237, 
+    
+);
+
+@import '~bootstrap/scss/bootstrap.scss';

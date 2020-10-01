@@ -5,6 +5,7 @@ import AuthPage from "./components/AuthPage";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import HomePage from "./components/HomePage";
+import "./App.scss";
 
 function useStickyState(defaultValue, key) {
   const [value, setValue] = useState(() => {

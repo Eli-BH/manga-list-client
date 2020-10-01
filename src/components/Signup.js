@@ -40,8 +40,8 @@ const Signup = ({ setIsLogged, isLogged }) => {
     return <Redirect to="/home" />;
   }
   return (
-    <div>
-      <div className="mb-5">Sign Up</div>
+    <div className="container">
+      <h1 className="mb-5 m4-5 pt-5">Sign Up</h1>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Label>Email</Form.Label>
         <Form.Control
@@ -73,10 +73,10 @@ const Signup = ({ setIsLogged, isLogged }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div>
-          <Button type="submit">Submit</Button>{" "}
-          <Link to="/login">
-            <Button>Login</Button>
+        <div className="mt-5">
+          <Button type="submit" variant="deep">Submit</Button>{" "}
+          <Link to="/login" >
+            <Button variant="warning">Login</Button>
           </Link>
         </div>
       </Form>
