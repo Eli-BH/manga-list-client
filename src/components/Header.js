@@ -30,12 +30,12 @@ const Header = ({ setIsLogged }) => {
   }
 
   return (
-    <Container fluid style={{ width: "80%" }}>
+    <Container fluid>
       <Jumbotron
         className="d-flex justify-content-center align-content-center"
         style={{ backgroundColor: "#50C9CE" }}
       >
-        <div>
+        <div style={{ width: "100%" }}>
           <h1>Hello, {userInfo.username}</h1>
           <p>Welcom to your manga list!</p>
 
@@ -43,8 +43,8 @@ const Header = ({ setIsLogged }) => {
             <Col>
               <h4>{` ${mangaList.length}: Manga `}</h4>
             </Col>
-            <Col style={{ width: 600 }}>
-              <h4>{`${count}: completed Manga`}</h4>
+            <Col style={{ width: "100%" }}>
+              <h4>{`${count}: Completed Manga`}</h4>
             </Col>
 
             <Col>

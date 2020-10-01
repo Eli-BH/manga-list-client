@@ -6,7 +6,7 @@ import MangaEntry from "./MangaEntry";
 import Header from "./Header";
 const HomePage = ({ isLogged, setIsLogged }) => {
   return (
-    <div style={{backgroundColor: "#BF1363", height: '100vh'}}>
+    <div style={{ backgroundColor: "#BF1363", height: "100vh" }}>
       {!isLogged ? (
         <Redirect to="/" />
       ) : (

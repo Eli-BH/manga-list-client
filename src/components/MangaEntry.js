@@ -69,7 +69,7 @@ const MangaEntry = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#BF1363", height: "100vh" }}>
       <div>
         <Container>
           <Form onSubmit={handleSubmit} className="mb-5">
@@ -100,7 +100,7 @@ const MangaEntry = () => {
       </div>
 
       <Container fluid>
-        <Row className="justify-content-lg-center">
+        <Row className="">
           {mangaList.length > 0 ? (
             width > 500 ? (
               mangaList.map((manga) => {

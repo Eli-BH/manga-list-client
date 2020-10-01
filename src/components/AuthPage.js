@@ -8,10 +8,17 @@ const AuthPage = ({ isLogged }) => {
     return <Redirect to="/home" />;
   }
   return (
-    <div style={{backgroundColor: "#50C9CE", height: "100vh", color: 'white'}}>
+    <div
+      style={{
+        backgroundColor: "#50C9CE",
+        height: "100vh",
+        color: "white",
+        textAlign: "center",
+      }}
+    >
       <div className="d-flex flex-column align-items-center mb-5 pt-5">
         <div>
-          <h1 > Welcome to Your Manga List !</h1>
+          <h1> Welcome to Your Manga List !</h1>
         </div>
 
         <div className="align-content-between m-5">
