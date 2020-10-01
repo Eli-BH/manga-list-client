@@ -20,7 +20,6 @@ const ReadingAmtDrpDwn = ({ manga }) => {
         readChapterAmount: value,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload(false);
       })
       .catch((e) => {

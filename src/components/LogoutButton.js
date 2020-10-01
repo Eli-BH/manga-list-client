@@ -18,7 +18,6 @@ const LogoutButton = ({ setIsLogged }) => {
         }
       )
       .then((res) => {
-        console.log(res);
         setIsLogged(false);
         localStorage.clear();
         history.push("/");

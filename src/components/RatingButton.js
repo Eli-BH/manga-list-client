@@ -14,7 +14,6 @@ const RatingButton = ({ manga }) => {
         rating: x,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload(false);
       })
       .catch((e) => {

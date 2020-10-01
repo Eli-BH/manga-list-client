@@ -27,7 +27,6 @@ const Signup = ({ setIsLogged, isLogged }) => {
         password: password,
       })
       .then((response) => {
-        console.log(response);
         localStorage.setItem("user", JSON.stringify(response.data));
         setIsLogged(true);
         history.push("/home");
@@ -74,8 +73,10 @@ const Signup = ({ setIsLogged, isLogged }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="mt-5">
-          <Button type="submit" variant="deep">Submit</Button>{" "}
-          <Link to="/login" >
+          <Button type="submit" variant="deep">
+            Submit
+          </Button>{" "}
+          <Link to="/login">
             <Button variant="warning">Login</Button>
           </Link>
         </div>

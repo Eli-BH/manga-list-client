@@ -13,7 +13,6 @@ const DeleteButton = ({ manga }) => {
     axios
       .delete(`https://eli-manga-api.herokuapp.com/api/manga/${manga._id}`)
       .then((res) => {
-        console.log(res);
         window.location.reload(false);
       })
       .catch((e) => {

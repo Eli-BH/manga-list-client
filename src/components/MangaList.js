@@ -13,7 +13,6 @@ const MangaList = () => {
     await axios
       .get("https://eli-manga-api.herokuapp.com/api/manga")
       .then((res) => {
-        console.log(res.data);
         setManga(res.data);
       })
       .catch((e) => {

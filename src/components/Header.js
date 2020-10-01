@@ -16,7 +16,6 @@ const Header = ({ setIsLogged }) => {
     axios
       .get("https://eli-manga-api.herokuapp.com/api/manga")
       .then((res) => {
-        console.log(res.data);
         setMangaList(res.data);
       })
       .catch((e) => {
@@ -26,14 +25,16 @@ const Header = ({ setIsLogged }) => {
 
   for (let i = 0; i < mangaList.length; i++) {
     if (mangaList[i].complete === true) {
-      console.log(mangaList[i].title);
       count += 1;
     }
   }
 
   return (
     <Container fluid style={{ width: "80%" }}>
-      <Jumbotron className="d-flex justify-content-center align-content-center" style={{backgroundColor: '#50C9CE' }}>
+      <Jumbotron
+        className="d-flex justify-content-center align-content-center"
+        style={{ backgroundColor: "#50C9CE" }}
+      >
         <div>
           <h1>Hello, {userInfo.username}</h1>
           <p>Welcom to your manga list!</p>

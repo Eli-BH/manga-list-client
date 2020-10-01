@@ -14,7 +14,6 @@ const ChapterPatch = ({ manga }) => {
         complete: !manga.complete,
       })
       .then((res) => {
-        console.log(res);
         window.location.reload(false);
       })
       .catch((e) => {

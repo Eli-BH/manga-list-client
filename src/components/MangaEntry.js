@@ -26,7 +26,6 @@ const MangaEntry = () => {
     axios
       .get(`https://eli-manga-api.herokuapp.com/api/manga${sortBy}`)
       .then((res) => {
-        console.log(res.data);
         setMangaList(res.data);
       })
       .catch((e) => {
@@ -42,7 +41,6 @@ const MangaEntry = () => {
       )
       .then((res) => {
         const mangainfo = res.data.results[0];
-        console.log(res.data.results[0]);
 
         const dataObj = {
           title: mangainfo.title,
@@ -59,13 +57,11 @@ const MangaEntry = () => {
         axios
           .post("https://eli-manga-api.herokuapp.com/api/manga", res)
           .then((res) => {
-            console.log(res);
             window.location.reload(false);
           })
           .catch((e) => {
             console.log(e);
           });
-        console.log(res);
       })
       .catch((e) => {
         console.log(e);
