@@ -8,8 +8,6 @@ const DeleteButton = ({ manga }) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   const handleDelete = () => {
-    alert(`Delete button pressed for ${manga.title}, the id is ${manga._id}`);
-
     axios
       .delete(`https://eli-manga-api.herokuapp.com/api/manga/${manga._id}`)
       .then((res) => {

@@ -112,11 +112,14 @@ const MangaEntry = () => {
               })
             )
           ) : (
-            <div>
+            <div
+              style={{ width: "100%" }}
+              className="d-flex justify-content-center"
+            >
               {" "}
               <Row>
                 {" "}
-                <h3 className="mr-5">Add Manga! </h3>
+                <h3 className="mr-5">Waiting for manga! </h3>
                 <Spinner animation="border" size="lg" />
               </Row>{" "}
             </div>
