@@ -15,7 +15,6 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/Eli-BH/manga-list-client?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/Eli-BH/manga-list-client?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/manga-client?color=56BEB8" /> -->
 
