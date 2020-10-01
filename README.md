@@ -100,10 +100,10 @@ If the manga you wanted does not come up, delete the manga card and check your s
 To enter your chapter position: click the badge with with the chapter amounts.
 
 Desktop version  
-<img src="https://i.imgur.com/rEXVFYC.jpg" alt="desktop view"/>
+<img src="https://i.imgur.com/rEXVFYC.jpg" alt="desktop view" width="500"/>
 
 Phone version  
-<img src="https://i.imgur.com/nk5uJ2k.jpg" alt="phone view"/>
+<img src="https://i.imgur.com/nk5uJ2k.jpg" alt="phone view" width="250"/>
 
 ## :memo: License
 
