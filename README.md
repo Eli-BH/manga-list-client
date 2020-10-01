@@ -1,10 +1,3 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Manga Client" />
-
-&#xa0;
-
-  <!-- <a href="https://yourmanga.herokuapp.com">Demo</a> -->
-</div>
 
 <h1 align="center">Manga Client</h1>
 
