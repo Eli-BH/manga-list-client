@@ -69,7 +69,7 @@ const MangaEntry = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#BF1363", height: "100vh" }}>
+    <div style={{ backgroundColor: "#BF1363", height: "100%" }}>
       <div>
         <Container>
           <Form onSubmit={handleSubmit} className="mb-5">
